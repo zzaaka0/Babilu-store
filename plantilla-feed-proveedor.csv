@@ -1,0 +1,2 @@
+provider,sku,name,category,description,cost_ex_vat,vat_rate,shipping_cost,stock,delivery_estimate_days,image_url,image_rights_confirmed,manufacturer,eu_responsible_person,product_safety_docs,returns_terms,status
+PROVEEDOR,SKU-001,Nombre real,Categoría,Descripción verificada,,,,,,,,false,,,,draft
