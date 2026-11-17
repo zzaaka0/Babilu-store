@@ -1,27 +1,18 @@
-BABILU — prototipo inicial
+BABILU 2.0 — paquete para publicar en GitHub Pages
 
-CONTENIDO
-- index.html: aplicación web móvil.
-- manifest.webmanifest: configuración instalable PWA.
-- sw.js: caché básica para uso offline tras la primera carga.
+CONTENIDO:
+- index.html: tienda de demostración adaptable a móvil.
+- manifest.webmanifest: metadatos PWA.
+- sw.js: caché básica para uso offline.
+- icon.svg: icono vectorial.
 
-QUÉ FUNCIONA
-- Catálogo de demostración.
-- Búsqueda y filtros por categoría.
-- Carrito con cantidades, guardado local en el dispositivo.
-- Favoritos guardados localmente.
-- Navegación Inicio / Favoritos / Carrito / Perfil.
-- Diseño adaptable a móvil.
+IMPORTANTE:
+Esta versión NO es una tienda operativa. Los nombres, emojis y precios del catálogo son ejemplos de diseño.
+El carrito y favoritos se guardan solo en el navegador del dispositivo.
+No hay inventario, proveedor, cuentas, base de datos, pagos, envíos ni creación real de pedidos.
+No recoger datos personales ni datos bancarios.
 
-IMPORTANTE
-- Los productos, precios y etiquetas son de ejemplo.
-- No hay inventario real, cuentas, pagos, pedidos ni conexión con proveedores.
-- No publiques ni cobres pedidos usando este prototipo.
-- Para instalar como PWA, primero hay que alojarlo en un dominio HTTPS. Se puede probar localmente abriendo index.html, aunque la instalación PWA requiere HTTPS o localhost.
-- Publicar en App Store / Google Play y operar una tienda real puede implicar costes y obligaciones legales.
-
-SIGUIENTE FASE
-1. Definir productos reales, proveedores, costes y márgenes.
-2. Crear backend, base de datos, autenticación y gestión de pedidos.
-3. Integrar un proveedor de pagos y envíos.
-4. Preparar empaquetado nativo Android/iOS si se desea publicar en las tiendas.
+PUBLICACIÓN:
+Sube los archivos de esta carpeta a la raíz del repositorio GitHub Pages, reemplazando los archivos antiguos.
+Conserva la rama main y la carpeta /(root).
+Tras publicar, actualiza la página. Si ves la versión antigua, prueba cerrar y abrir la pestaña o borrar caché del sitio.

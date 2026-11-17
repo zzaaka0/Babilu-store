@@ -1,113 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#171923">
-<meta name="description" content="BABILU: descubre gadgets y productos virales.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090d">
+<meta name="description" content="BABILU: gadgets y productos que marcan tendencia.">
 <link rel="manifest" href="manifest.webmanifest">
-<title>BABILU — Lo ves. Lo quieres.</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>BABILU — Lo ves. Lo quieres. Lo tienes.</title>
 <style>
-:root{--ink:#171923;--purple:#a78bfa;--purple-dark:#7c3aed;--bg:#f7f7fb;--muted:#77798a;--line:#ececf2;--white:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button,input{font:inherit}button{cursor:pointer}.app{max-width:520px;min-height:100vh;margin:auto;background:#fff;box-shadow:0 0 40px #1719230b;padding-bottom:82px}
-header{background:var(--ink);color:#fff;padding:18px 18px 20px;position:sticky;top:0;z-index:5}
-.top{display:flex;align-items:center;justify-content:space-between}.logo{font-size:27px;font-weight:950;letter-spacing:2px}.tag{font-size:9px;letter-spacing:2px;color:#c8c5d4;margin-top:2px}.iconbtn{border:0;background:#ffffff18;color:#fff;width:40px;height:40px;border-radius:13px;font-size:19px;position:relative}
-.count{position:absolute;right:-4px;top:-5px;background:var(--purple);color:#171923;border-radius:20px;min-width:18px;height:18px;font-size:11px;font-weight:800;display:grid;place-items:center}
-.search{margin-top:17px;background:#fff;border-radius:13px;display:flex;align-items:center;padding:0 13px;gap:9px;color:#777}.search input{border:0;outline:0;width:100%;padding:13px 0;color:#171923;background:transparent}
-main{padding:18px}.hero{background:linear-gradient(125deg,#d9c8ff,#a78bfa 55%,#8b5cf6);border-radius:22px;padding:21px;overflow:hidden;position:relative;min-height:185px}
-.eyebrow{font-size:10px;font-weight:900;letter-spacing:1.6px;color:#3b245e}.hero h1{font-size:29px;line-height:1.02;max-width:245px;margin:12px 0 8px;letter-spacing:-1px}.hero p{font-size:12px;max-width:220px;margin:0;color:#3e3154;line-height:1.5}.hero .orb{position:absolute;width:150px;height:150px;border-radius:50%;background:#ffffff55;right:-24px;bottom:-44px;box-shadow:0 0 0 18px #ffffff20}.hero .spark{position:absolute;right:28px;top:37px;font-size:64px;transform:rotate(-12deg)}
-.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:24px 0 13px}.sectionhead h2{font-size:17px;margin:0;letter-spacing:-.4px}.sub{font-size:11px;color:var(--muted)}
-.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.cat{border:1px solid var(--line);background:#fff;border-radius:15px;padding:12px 4px;text-align:center;color:var(--ink);font-size:10px;font-weight:750}.cat .emoji{display:block;font-size:23px;margin-bottom:6px}.cat.active{background:#f1ebff;border-color:#c7b3ff;color:#5b21b6}
-.filters{display:flex;gap:8px;overflow:auto;padding-bottom:3px}.chip{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:30px;padding:8px 13px;font-size:11px;color:#555}.chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product{border:1px solid var(--line);border-radius:17px;overflow:hidden;background:#fff;min-width:0}.visual{height:135px;display:grid;place-items:center;background:linear-gradient(145deg,#f5f2ff,#eeeaf8);font-size:57px;position:relative}.pill{position:absolute;top:9px;left:9px;background:#171923;color:#fff;border-radius:30px;padding:5px 8px;font-size:9px;font-weight:800}.heart{position:absolute;right:8px;top:8px;border:0;border-radius:50%;width:29px;height:29px;background:#fff;color:#555;font-size:16px}.heart.on{color:#e34d78}.info{padding:11px}.name{font-size:12px;font-weight:750;min-height:30px}.desc{font-size:10px;color:var(--muted);margin:4px 0 9px}.priceRow{display:flex;align-items:center;justify-content:space-between;gap:4px}.price{font-size:15px;font-weight:900}.add{border:0;background:var(--purple);color:#24133c;border-radius:10px;width:32px;height:32px;font-size:20px;font-weight:800}
-.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:70px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);z-index:10}.nav{border:0;background:transparent;color:#858594;font-size:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}.nav b{font-size:19px;font-weight:500}.nav.active{color:#6d35c5;font-weight:850}
-.panel{display:none}.panel.active{display:block}.empty{text-align:center;padding:45px 15px;color:var(--muted)}.empty .big{font-size:45px}.empty h3{color:var(--ink);margin:10px 0 5px}.cartrow{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:13px 0}.miniemoji{width:54px;height:54px;border-radius:13px;background:#f1edfb;display:grid;place-items:center;font-size:27px}.grow{flex:1}.qty{display:flex;align-items:center;gap:9px}.qty button{border:1px solid var(--line);background:white;border-radius:8px;width:27px;height:27px}.primary{border:0;background:var(--ink);color:#fff;border-radius:13px;padding:14px;width:100%;font-weight:800;margin-top:15px}.note{font-size:10px;color:#888;line-height:1.5;margin-top:10px}.profilebox{background:#f5f1ff;border-radius:18px;padding:18px}.profilebox h2{margin:0 0 5px}.profilebox p{font-size:12px;color:#665b79;line-height:1.5}
-@media(min-width:520px){body{padding:18px 0}.app{border-radius:24px;overflow:hidden;min-height:calc(100vh - 36px)}.bottom{bottom:18px;border-radius:0 0 24px 24px}}
+:root{--bg:#09090d;--panel:#111119;--panel2:#181824;--line:#29283a;--text:#f8f7ff;--muted:#aaa8ba;--purple:#9b70ff;--purple2:#7146df;--pink:#d6a8ff;--green:#7de0b0;--r:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#291747 0,transparent 35%),var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#09090deF;backdrop-filter:blur(18px);border-bottom:1px solid #242333}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{font-weight:950;letter-spacing:2px;font-size:25px}.brand span{color:var(--purple)}.navright{display:flex;gap:9px;align-items:center}
+.pill{border:1px solid var(--line);background:#151520;color:var(--text);border-radius:999px;padding:10px 14px}.cartbtn{position:relative}.count{display:inline-grid;place-items:center;background:var(--purple);color:#10091e;border-radius:99px;min-width:20px;height:20px;font-size:12px;font-weight:900;margin-left:5px}
+.hero{padding:58px 0 34px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}.eyebrow{color:var(--pink);text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:800}.hero h1{font-size:clamp(40px,7vw,76px);line-height:.98;letter-spacing:-3px;margin:14px 0}.hero h1 em{font-style:normal;color:var(--purple)}.hero p{color:var(--muted);font-size:16px;line-height:1.6;max-width:520px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.primary,.secondary{border:0;border-radius:13px;padding:13px 18px;font-weight:850}.primary{background:linear-gradient(135deg,var(--purple),#c18cff);color:#10091e}.secondary{background:#1a1925;color:var(--text);border:1px solid var(--line)}
+.heroart{min-height:270px;border:1px solid #3b2b59;border-radius:28px;background:linear-gradient(145deg,#25143e,#12121d 65%);display:grid;place-items:center;position:relative;overflow:hidden}.orb{width:210px;height:210px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e4c9ff,#9c65ff 35%,#4b2694 70%);box-shadow:0 0 90px #8b55ff77;display:grid;place-items:center;font-size:90px;transform:rotate(-12deg)}.sticker{position:absolute;right:18px;bottom:18px;background:#0c0b13;border:1px solid #51406d;padding:10px 14px;border-radius:12px;font-size:12px;font-weight:800}
+.toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:24px 0 18px}.search{flex:1;min-width:220px;background:var(--panel);border:1px solid var(--line);border-radius:13px;color:white;padding:13px 15px;outline:none}.search:focus{border-color:var(--purple)}.filters{display:flex;gap:7px;overflow:auto;padding:2px 0}.filter{white-space:nowrap;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:99px;padding:10px 13px}.filter.active{background:#38245c;color:white;border-color:#7951b7}
+.sectionhead{display:flex;align-items:end;justify-content:space-between;margin:35px 0 16px}.sectionhead h2{margin:0;font-size:26px}.sectionhead small{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;padding-bottom:55px}.product{background:linear-gradient(160deg,#171722,#101017);border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative}.visual{height:175px;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,#3c285c,#1b1728 58%,#12121a);font-size:68px;position:relative}.tag{position:absolute;top:12px;left:12px;background:#e6d7ff;color:#24113f;border-radius:99px;padding:6px 9px;font-size:10px;font-weight:900}.heart{position:absolute;top:10px;right:10px;background:#0b0a12b8;border:1px solid #ffffff25;color:white;border-radius:50%;width:35px;height:35px;font-size:18px}.pbody{padding:14px}.pbody h3{margin:0 0 7px;font-size:16px}.pbody p{margin:0;color:var(--muted);font-size:12px;line-height:1.45;min-height:34px}.priceRow{display:flex;align-items:center;justify-content:space-between;margin-top:14px;gap:8px}.price{font-weight:900;font-size:19px}.add{background:var(--purple);color:#130a22;border:0;border-radius:10px;padding:9px 12px;font-weight:900}
+.note{border:1px solid #4c3a6b;background:#171222;border-radius:14px;padding:13px 15px;color:#d7c9ef;font-size:12px;line-height:1.5;margin:0 0 30px}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:12px;line-height:1.7}.footrow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footbrand{font-size:19px;color:white;font-weight:950;letter-spacing:2px}
+.overlay{position:fixed;inset:0;background:#000a;z-index:20;display:none;justify-content:flex-end}.overlay.open{display:flex}.drawer{width:min(430px,100%);height:100%;background:#111119;border-left:1px solid var(--line);padding:22px;overflow:auto}.drawhead{display:flex;justify-content:space-between;align-items:center}.drawhead h2{margin:0}.close{background:#242333;border:0;color:white;border-radius:10px;padding:9px 12px}.cartitem{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:14px 0}.cartitem small{color:var(--muted)}.qty{display:flex;align-items:center;gap:8px}.qty button{border:1px solid var(--line);background:#242333;color:white;border-radius:8px;width:27px;height:27px}.total{display:flex;justify-content:space-between;font-weight:900;font-size:20px;margin:20px 0}.full{width:100%}.empty{color:var(--muted);padding:35px 0;text-align:center}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:38px}.heroart{min-height:210px}.orb{width:155px;height:155px;font-size:65px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.visual{height:135px;font-size:55px}.pbody{padding:11px}.pbody h3{font-size:14px}.price{font-size:16px}.add{padding:8px 9px}.sectionhead h2{font-size:22px}}
+@media(max-width:380px){.grid{grid-template-columns:1fr}.visual{height:160px}}
 </style>
 </head>
 <body>
-<div class="app">
-<header>
-  <div class="top">
-    <div><div class="logo">BABILU</div><div class="tag">LO VES. LO QUIERES. LO TIENES.</div></div>
-    <button class="iconbtn" aria-label="Ver carrito" onclick="show('cart')">🛍️<span class="count" id="count">0</span></button>
-  </div>
-  <label class="search">⌕ <input id="search" placeholder="¿Qué estás buscando?" oninput="renderProducts()"></label>
-</header>
-<main>
-<section class="panel active" id="home">
-  <div class="hero"><div class="eyebrow">DESCUBRE LO NUEVO</div><h1>Lo más viral está aquí.</h1><p>Gadgets, ideas y pequeños descubrimientos para tu día a día.</p><div class="orb"></div><div class="spark">✦</div></div>
-  <div class="sectionhead"><h2>Explora categorías</h2><span class="sub">BABILU</span></div>
-  <div class="categories" id="categories">
-    <button class="cat active" onclick="setCategory('Todos',this)"><span class="emoji">✨</span>Todo</button>
-    <button class="cat" onclick="setCategory('Tecnología',this)"><span class="emoji">🎧</span>Tecnología</button>
-    <button class="cat" onclick="setCategory('Hogar',this)"><span class="emoji">🏠</span>Hogar</button>
-    <button class="cat" onclick="setCategory('Accesorios',this)"><span class="emoji">🕶️</span>Accesorios</button>
-  </div>
-  <div class="sectionhead"><h2>En tendencia</h2><span class="sub">Catálogo demo</span></div>
-  <div class="filters">
-    <button class="chip active" onclick="setFilter('Todos',this)">Todos</button>
-    <button class="chip" onclick="setFilter('Novedad',this)">Novedades</button>
-    <button class="chip" onclick="setFilter('Popular',this)">Más populares</button>
-  </div>
-  <div class="products" id="products" style="margin-top:12px"></div>
-  <p class="note">Prototipo: productos, imágenes emoji y precios ilustrativos. No se pueden comprar todavía.</p>
-</section>
-<section class="panel" id="cart">
-  <div class="sectionhead"><h2>Tu carrito</h2><span class="sub" id="cartcount">0 artículos</span></div>
-  <div id="cartitems"></div><div id="carttotal"></div>
-  <p class="note">El checkout y los pagos se conectarán cuando configuremos un proveedor de pagos y el negocio esté listo para vender.</p>
-</section>
-<section class="panel" id="favs">
-  <div class="sectionhead"><h2>Tus favoritos</h2></div><div class="products" id="favoriteitems"></div>
-</section>
-<section class="panel" id="profile">
-  <div class="profilebox"><h2>Hola, bienvenido a BABILU 👋</h2><p>Tu espacio para descubrir productos que están dando que hablar.</p></div>
-  <div class="sectionhead"><h2>Tu cuenta</h2></div>
-  <div class="cartrow"><div class="miniemoji">📦</div><div class="grow"><b>Mis pedidos</b><div class="sub">Aquí aparecerán tus compras.</div></div>›</div>
-  <div class="cartrow"><div class="miniemoji">❤️</div><div class="grow"><b>Lista de favoritos</b><div class="sub">Guarda productos para después.</div></div>›</div>
-  <p class="note">El registro de clientes se añadirá en una siguiente fase.</p>
-</section>
+<header><div class="wrap nav"><div class="brand">BABI<span>LU</span></div><div class="navright"><button class="pill" id="favToggle">♡ Favoritos</button><button class="pill cartbtn" id="openCart">🛒 Carrito <span class="count" id="cartCount">0</span></button></div></div></header>
+<main class="wrap">
+<section class="hero"><div><div class="eyebrow">Descubre lo que está en tendencia</div><h1>LO VES.<br><em>LO QUIERES.</em><br>LO TIENES.</h1><p>Gadgets, accesorios y pequeños inventos que hacen tu día más fácil. Descubre tus próximos favoritos en BABILU.</p><div class="actions"><button class="primary" onclick="document.querySelector('#catalogo').scrollIntoView({behavior:'smooth'})">Explorar productos ↘</button><button class="secondary" onclick="setCategory('Todos')">Ver novedades</button></div></div><div class="heroart"><div class="orb">✦</div><div class="sticker">TENDENCIAS · BABILU</div></div></section>
+<div class="note">VERSIÓN DE PRUEBA: los artículos y precios que aparecen son ejemplos de diseño, no ofertas ni productos disponibles para comprar todavía. El carrito funciona en este dispositivo, pero el pago y los pedidos reales aún no están conectados.</div>
+<section id="catalogo"><div class="sectionhead"><div><div class="eyebrow">La selección BABILU</div><h2>Descubre el catálogo</h2></div><small id="resultCount">6 ideas</small></div>
+<div class="toolbar"><input class="search" id="search" placeholder="Buscar un gadget..." aria-label="Buscar productos"><div class="filters" id="filters"></div></div><div class="grid" id="products"></div></section>
 </main>
-<nav class="bottom">
-  <button class="nav active" onclick="show('home',this)"><b>⌂</b>Inicio</button>
-  <button class="nav" onclick="show('favs',this)"><b>♡</b>Favoritos</button>
-  <button class="nav" onclick="show('cart',this)"><b>🛍</b>Carrito</button>
-  <button class="nav" onclick="show('profile',this)"><b>♙</b>Perfil</button>
-</nav>
-</div>
+<footer><div class="wrap footrow"><div><div class="footbrand">BABILU</div>Lo ves. Lo quieres. Lo tienes.<br>© <span id="year"></span> BABILU</div><div>Catálogo de demostración<br>Contacto y condiciones comerciales: pendientes de configurar.</div></div></footer>
+<div class="overlay" id="overlay"><aside class="drawer"><div class="drawhead"><h2>Tu carrito</h2><button class="close" id="closeCart">Cerrar ✕</button></div><div id="cartItems"></div><div class="total"><span>Total de ejemplo</span><span id="total">0,00 €</span></div><button class="primary full" id="checkout">Continuar</button><p style="color:var(--muted);font-size:12px;line-height:1.5">El proceso de pago está desactivado en esta versión. No introduzcas datos personales ni bancarios.</p></aside></div>
 <script>
 const products=[
-{id:1,name:"Mini proyector",desc:"Cine en cualquier rincón",price:39.99,emoji:"📽️",cat:"Tecnología",tag:"Popular"},
-{id:2,name:"Altavoz Bluetooth",desc:"Música para llevar",price:19.99,emoji:"🔊",cat:"Tecnología",tag:"Novedad"},
-{id:3,name:"Lámpara sunset",desc:"Dale otro ambiente a tu habitación",price:14.99,emoji:"🌅",cat:"Hogar",tag:"Popular"},
-{id:4,name:"Soporte magnético",desc:"Tu móvil siempre a mano",price:9.99,emoji:"📱",cat:"Accesorios",tag:"Novedad"},
-{id:5,name:"Auriculares compactos",desc:"Pequeños y prácticos",price:17.99,emoji:"🎧",cat:"Tecnología",tag:"Popular"},
-{id:6,name:"Mini ventilador",desc:"Fresco y portátil",price:12.99,emoji:"🌀",cat:"Hogar",tag:"Novedad"}
+{id:1,name:"Lámpara LED ambiental",cat:"Iluminación",emoji:"💡",price:14.90,tag:"Tendencia",desc:"Una idea de iluminación decorativa para tu espacio."},
+{id:2,name:"Mini aspiradora portátil",cat:"Gadgets",emoji:"🌀",price:19.90,tag:"Práctico",desc:"Concepto compacto para pequeñas limpiezas."},
+{id:3,name:"Soporte ajustable para móvil",cat:"Accesorios",emoji:"📱",price:9.90,tag:"Favorito",desc:"Una solución sencilla para colocar el teléfono."},
+{id:4,name:"Proyector de estrellas",cat:"Iluminación",emoji:"🌌",price:24.90,tag:"Novedad",desc:"Ambiente visual para habitaciones y rincones."},
+{id:5,name:"Organizador de cables",cat:"Accesorios",emoji:"🔌",price:7.90,tag:"Útil",desc:"Una idea para mantener los cables ordenados."},
+{id:6,name:"Ventilador USB compacto",cat:"Gadgets",emoji:"🪭",price:12.90,tag:"Popular",desc:"Gadget pequeño para escritorio o viaje."}
 ];
-let cart=JSON.parse(localStorage.getItem("babilu_cart")||"{}");
-let favorites=JSON.parse(localStorage.getItem("babilu_favs")||"[]");
-let category="Todos",filter="Todos",page="home";
+let cart=JSON.parse(localStorage.getItem("babilu_cart")||"{}"),favorites=JSON.parse(localStorage.getItem("babilu_favs")||"[]"),category="Todos",onlyFav=false;
 const money=n=>n.toLocaleString("es-ES",{style:"currency",currency:"EUR"});
-function save(){localStorage.setItem("babilu_cart",JSON.stringify(cart));localStorage.setItem("babilu_favs",JSON.stringify(favorites));updateCount()}
-function updateCount(){document.getElementById("count").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
-function card(p){return `<article class="product"><div class="visual"><span>${p.emoji}</span><span class="pill">${p.tag==="Popular"?"TOP": "NUEVO"}</span><button class="heart ${favorites.includes(p.id)?"on":""}" onclick="toggleFav(${p.id})">${favorites.includes(p.id)?"♥":"♡"}</button></div><div class="info"><div class="name">${p.name}</div><div class="desc">${p.desc}</div><div class="priceRow"><span class="price">${money(p.price)}</span><button class="add" onclick="add(${p.id})" aria-label="Añadir ${p.name}">+</button></div></div></article>`}
-function renderProducts(){let q=(document.getElementById("search").value||"").toLowerCase();let list=products.filter(p=>(category==="Todos"||p.cat===category)&&(filter==="Todos"||p.tag===filter)&&(p.name+" "+p.desc+" "+p.cat).toLowerCase().includes(q));document.getElementById("products").innerHTML=list.length?list.map(card).join(""):'<div class="empty" style="grid-column:1/-1">No encontramos productos con esa búsqueda.</div>'}
-function setCategory(c,el){category=c;document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));el.classList.add("active");renderProducts()}
-function setFilter(f,el){filter=f;document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));el.classList.add("active");renderProducts()}
-function add(id){cart[id]=(cart[id]||0)+1;save();renderCart();toast("Añadido al carrito")}
-function toggleFav(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];save();renderProducts();renderFavs()}
-function renderCart(){let entries=Object.entries(cart).filter(([id,q])=>q>0);document.getElementById("cartcount").textContent=entries.reduce((a,[id,q])=>a+q,0)+" artículos";document.getElementById("cartitems").innerHTML=entries.length?entries.map(([id,q])=>{let p=products.find(x=>x.id==id);return `<div class="cartrow"><div class="miniemoji">${p.emoji}</div><div class="grow"><b>${p.name}</b><div class="sub">${money(p.price)}</div></div><div class="qty"><button onclick="changeQty(${id},-1)">−</button><b>${q}</b><button onclick="changeQty(${id},1)">+</button></div></div>`}).join(""):'<div class="empty"><div class="big">🛍️</div><h3>Tu carrito está vacío</h3><div>Cuando añadas algo, aparecerá aquí.</div></div>';let total=entries.reduce((s,[id,q])=>s+products.find(p=>p.id==id).price*q,0);document.getElementById("carttotal").innerHTML=entries.length?`<div class="sectionhead"><b>Total estimado</b><strong>${money(total)}</strong></div><button class="primary" onclick="alert('¡Esta es una demo! Los pagos se activarán en una siguiente fase.')">Continuar (demo)</button>`:""}
-function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];save();renderCart()}
-function renderFavs(){let list=products.filter(p=>favorites.includes(p.id));document.getElementById("favoriteitems").innerHTML=list.length?list.map(card).join(""):'<div class="empty" style="grid-column:1/-1"><div class="big">♡</div><h3>Aún no tienes favoritos</h3><div>Toca el corazón de un producto para guardarlo.</div></div>'}
-function show(id,el){page=id;document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));if(el)el.classList.add("active");else{let idx={home:0,favs:1,cart:2,profile:3}[id];document.querySelectorAll(".nav")[idx].classList.add("active")}if(id==="cart")renderCart();if(id==="favs")renderFavs();window.scrollTo({top:0,behavior:"smooth"})}
-let toastTimer;function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.style.opacity=1;clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.style.opacity=0,1300)}
-updateCount();renderProducts();renderCart();renderFavs();
-</script>
-<div id="toast" style="position:fixed;bottom:86px;left:50%;transform:translateX(-50%);background:#171923;color:#fff;padding:10px 16px;border-radius:30px;font-size:12px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20"></div>
-<script>
-if("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
-</script>
-</body>
-</html>
+function save(){localStorage.setItem("babilu_cart",JSON.stringify(cart));localStorage.setItem("babilu_favs",JSON.stringify(favorites));}
+function setCategory(c){category=c;renderFilters();renderProducts();}
+window.setCategory=setCategory;
+function renderFilters(){let cats=["Todos","Gadgets","Accesorios","Iluminación"];document.getElementById("filters").innerHTML=cats.map(c=>`<button class="filter ${category===c?"active":""}" onclick="setCategory('${c}')">${c}</button>`).join("");}
+function renderProducts(){let q=document.getElementById("search").value.toLowerCase();let list=products.filter(p=>(category==="Todos"||p.cat===category)&&(!onlyFav||favorites.includes(p.id))&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));document.getElementById("resultCount").textContent=list.length+" ideas";document.getElementById("products").innerHTML=list.map(p=>`<article class="product"><div class="visual"><span class="tag">${p.tag}</span><button class="heart" aria-label="Favorito" onclick="toggleFav(${p.id})">${favorites.includes(p.id)?"♥":"♡"}</button>${p.emoji}</div><div class="pbody"><h3>${p.name}</h3><p>${p.desc}</p><div class="priceRow"><span class="price">${money(p.price)}</span><button class="add" onclick="add(${p.id})">Añadir +</button></div></div></article>`).join("")||'<div class="empty">No hay productos con esa búsqueda.</div>';}
+function toggleFav(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];save();renderProducts();}
+function add(id){cart[id]=(cart[id]||0)+1;save();renderCart();}
+function change(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];save();renderCart();}
+function renderCart(){let count=Object.values(cart).reduce((a,b)=>a+b,0),total=0;document.getElementById("cartCount").textContent=count;let items=Object.entries(cart);document.getElementById("cartItems").innerHTML=items.length?items.map(([id,n])=>{let p=products.find(x=>x.id==id);total+=p.price*n;return `<div class="cartitem"><div><strong>${p.emoji} ${p.name}</strong><br><small>${money(p.price)} · precio de ejemplo</small></div><div class="qty"><button onclick="change(${id},-1)">−</button>${n}<button onclick="change(${id},1)">+</button></div></div>`}).join(""):'<div class="empty">Tu carrito está vacío. ¡Explora el catálogo!</div>';document.getElementById("total").textContent=money(total);}
+document.getElementById("search").addEventListener("input",renderProducts);
+document.getElementById("favToggle").onclick=()=>{onlyFav=!onlyFav;document.getElementById("favToggle").textContent=onlyFav?"♡ Ver todo":"♡ Favoritos";renderProducts();document.getElementById("catalogo").scrollIntoView({behavior:"smooth"});};
+document.getElementById("openCart").onclick=()=>document.getElementById("overlay").classList.add("open");
+document.getElementById("closeCart").onclick=()=>document.getElementById("overlay").classList.remove("open");
+document.getElementById("overlay").onclick=e=>{if(e.target.id==="overlay")e.currentTarget.classList.remove("open")};
+document.getElementById("checkout").onclick=()=>alert("¡Gracias por probar BABILU! El pago aún no está conectado. Esta cesta es solo una demostración; no se ha creado ningún pedido.");
+document.getElementById("year").textContent=new Date().getFullYear();renderFilters();renderProducts();renderCart();
+</script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
+</body></html>
