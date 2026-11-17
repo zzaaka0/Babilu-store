@@ -1,22 +1,25 @@
-# BABILU v2 — kit de lanzamiento dropshipping
+# BABILU — nueva tienda visual (v3)
 
-Este paquete está preparado para integrarse en el repositorio GitHub Pages de BABILU, pero **no reemplaza automáticamente la web actual**: no se ha proporcionado el código fuente del repositorio y no sería seguro sobrescribir `index.html` a ciegas.
+Esta versión sustituye el diseño de demostración por una portada responsive de estilo editorial/minimalista: fondo marfil, tipografía moderna, acento naranja, categorías, buscador y catálogo filtrable.
 
-## Qué incluye
+## Publicar en GitHub Pages
 
-- `data/catalogo-borrador.json`: 20 ideas de productos en cuatro departamentos. Todas están en borrador y ocultas hasta confirmar proveedor, SKU, coste, PVP, stock, envío, imágenes autorizadas y documentación.
-- `data/proveedores.csv`: proveedores potenciales y qué verificar con cada uno.
-- `data/plantilla-feed-proveedor.csv`: estructura para importar el feed real del mayorista.
-- `js/babilu-catalogo.js`: módulo pequeño que carga el JSON y muestra solo productos aprobados (`status: "active"`). No procesa pagos ni pedidos.
-- `js/calcular-margen.js`: calculadora de margen estimado.
-- `docs/INTEGRACION-GITHUB-PAGES.md`: instrucciones de integración.
-- `docs/EMAIL-PROVEEDORES.md`: mensaje para solicitar alta y condiciones.
-- `docs/ANTES-DE-ACEPTAR-PEDIDOS.md`: checklist comercial, legal y técnico.
+1. Descarga una copia de seguridad de tu repositorio actual.
+2. Descomprime este ZIP.
+3. Sube **el contenido de esta carpeta** a la raíz del repositorio `Babilu-store` (deben quedar `index.html`, `assets/` y `data/` directamente en la raíz; no dejes una carpeta `babilu_v3` dentro).
+4. Sustituye el `index.html` anterior y añade/sustituye `assets/` y `data/`.
+5. En GitHub pulsa **Commit changes**.
+6. En Settings → Pages, confirma que publica desde la rama y carpeta correctas (normalmente `main` y `/ (root)`).
+7. Espera a que termine el despliegue en Actions y abre la web en una ventana privada o fuerza recarga.
 
-## Importante sobre empezar con 0 €
+## Estado comercial: catálogo no vendible todavía
 
-No comprar stock por adelantado no significa que el negocio no necesite dinero. Cuando entre una venta, normalmente tendrás que pagar al proveedor y el envío antes de recibir la liquidación del procesador de pagos. También existen comisiones de pago, devoluciones, impuestos y posibles gastos de alta o actividad. Comprueba que puedes adelantar el coste de cada pedido antes de aceptar pagos.
+Las 20 fichas son propuestas, no productos comprables ni ofertas confirmadas. Se muestran como “Próximamente” y no hay precios ni botón de compra. Antes de activar ventas, completa proveedor aprobado, SKU, coste total, PVP, stock sincronizado, envío, imagen autorizada, garantía y documentación aplicable. Configura también pagos, impuestos, devoluciones, privacidad, condiciones de compra y un proceso seguro de pedidos.
 
-## Estado actual
+GitHub Pages es alojamiento estático: no guarda pedidos ni secretos y no integra por sí solo el dropshipping o los pagos. No introduzcas claves privadas en el repositorio.
 
-La web pública consultada aún muestra productos de demostración y avisa de que los pagos y pedidos reales no están conectados. No anuncies que ya se puede comprar hasta configurar pagos, entrega, devoluciones, contacto y obligaciones legales.
+## Personalización
+
+- Productos: `data/products.json`
+- Estilos: `assets/styles.css`
+- Renderizado del catálogo: `assets/catalog.js`
