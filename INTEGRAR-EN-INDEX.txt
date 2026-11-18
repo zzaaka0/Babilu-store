@@ -1,0 +1,7 @@
+AÑADIR EN EL <head> ANTES DE </head>:
+<link rel="stylesheet" href="./babilu-auth.css">
+
+AÑADIR JUSTO ANTES DE </body>:
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./supabase-config.js"></script>
+<script src="./babilu-auth.js"></script>

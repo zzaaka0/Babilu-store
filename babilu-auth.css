@@ -1,0 +1,25 @@
+#babiluAccountBtn{white-space:nowrap}
+#babiluAuthOverlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:16px;background:#05050bd9;backdrop-filter:blur(10px)}
+#babiluAuthOverlay.open{display:flex}
+#babiluAuthPanel{width:min(460px,100%);max-height:min(88vh,760px);overflow:auto;background:#111119;color:#f8f7ff;border:1px solid #39334c;border-radius:22px;padding:24px;box-shadow:0 24px 90px #000b;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+#babiluAuthPanel *{box-sizing:border-box}
+.ba-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+.ba-head h2{font-size:23px;margin:0;font-weight:900;letter-spacing:-.7px}
+.ba-close{border:1px solid #383447;background:#211e2d;color:#fff;border-radius:10px;padding:8px 11px;cursor:pointer}
+.ba-tabs{display:flex;gap:8px;margin-bottom:18px}
+.ba-tab{flex:1;border:1px solid #39334c;background:#1a1824;color:#c9c3d8;padding:10px;border-radius:11px;font-weight:800;cursor:pointer}
+.ba-tab.active{background:#38245c;border-color:#8d61d8;color:#fff}
+.ba-field{display:block;margin:12px 0;color:#c7c2d3;font-size:12px;font-weight:700}
+.ba-field input{display:block;width:100%;margin-top:7px;border:1px solid #39334c;background:#0b0a12;color:#fff;border-radius:11px;padding:13px;outline:none;font:inherit}
+.ba-field input:focus{border-color:#a27aff;box-shadow:0 0 0 3px #9b70ff22}
+.ba-primary{width:100%;border:0;border-radius:12px;padding:13px 16px;background:linear-gradient(135deg,#9b70ff,#c18cff);color:#160d26;font-weight:900;cursor:pointer;margin-top:10px}
+.ba-primary:disabled{opacity:.55;cursor:wait}
+.ba-muted{color:#aaa5b9;font-size:12px;line-height:1.55}
+.ba-link{display:inline-block;color:#c7aaff;background:none;border:0;padding:12px 0 0;cursor:pointer;font-size:12px}
+.ba-message{margin:12px 0 0;padding:10px 12px;border-radius:10px;background:#211b30;color:#e4d6ff;font-size:12px;line-height:1.5;display:none}
+.ba-message.show{display:block}
+.ba-profile{background:#191724;border:1px solid #373147;border-radius:14px;padding:15px;margin:12px 0}
+.ba-profile strong{display:block;overflow-wrap:anywhere}
+.ba-order{border-top:1px solid #383447;padding:12px 0;font-size:12px;display:flex;justify-content:space-between;gap:12px}
+.ba-danger{background:#21151d;border:1px solid #593247;color:#ffd7e6;border-radius:11px;padding:11px 14px;font-weight:800;cursor:pointer}
+@media(max-width:480px){#babiluAuthPanel{padding:19px;border-radius:18px}.ba-head h2{font-size:20px}}
